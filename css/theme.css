@@ -1,0 +1,37 @@
+body {
+  background-color: #131312;
+  color: #ccc;
+}
+
+.p-options {
+  font-size: 5em;
+  cursor: pointer;
+  /* filter: hue-rotate(180deg); makes blue */
+}
+
+.c-options {
+  font-size: 5em;
+}
+
+.flex-even {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.flex-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.new_game_btn {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 20px;
+  padding: 15px 32px;
+  font-size: 16px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #dcdcdc;
+}
