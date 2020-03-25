@@ -44,17 +44,17 @@ pl_paper.onclick = function() {
   update_ui();
 };
 
-pl_scisors.onclick = function() {
-  //the player makes the choice to play 'scisors' this round
+pl_scissors.onclick = function() {
+  //the player makes the choice to play 'scissors' this round
   reset_btn();
   Check_Game_State();
   if (game == false) {
     return false;
   }
   document //makes the button turn blue
-    .getElementById("pl_scisors")
+    .getElementById("pl_scissors")
     .style.setProperty("filter", "hue-rotate(180deg)");
-  turn("scisors", computer_choice());
+  turn("scissors", computer_choice());
   update_ui();
 };
 
@@ -110,7 +110,7 @@ function computer_choice() {
       break;
     case 2:
       document
-        .getElementById("co_scisors")
+        .getElementById("co_scissors")
         .style.setProperty("filter", "hue-rotate(180deg)");
       break;
     default:
@@ -132,10 +132,10 @@ function reset_btn() {
   //returns the choice buttons to their normal colors
   document.getElementById("co_rock").style.removeProperty("filter");
   document.getElementById("co_paper").style.removeProperty("filter");
-  document.getElementById("co_scisors").style.removeProperty("filter");
+  document.getElementById("co_scissors").style.removeProperty("filter");
   document.getElementById("pl_rock").style.removeProperty("filter");
   document.getElementById("pl_paper").style.removeProperty("filter");
-  document.getElementById("pl_scisors").style.removeProperty("filter");
+  document.getElementById("pl_scissors").style.removeProperty("filter");
 }
 
 function turn(player_choice, computer_choice) {

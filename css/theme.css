@@ -3,13 +3,13 @@ body {
   color: #ccc;
 }
 
-.p-options {
+.pl-options {
   font-size: 5em;
   cursor: pointer;
   /* filter: hue-rotate(180deg); makes blue */
 }
 
-.c-options {
+.co-options {
   font-size: 5em;
 }
 
