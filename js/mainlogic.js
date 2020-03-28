@@ -3,11 +3,9 @@ const anouncer = document.getElementById("anouncer");
 var player_score = 0;
 var computer_score = 0;
 var round = 1;
-var game = true;
 
 document.getElementById("new").onclick = function() {
   //upon clicking the new button the game is reset
-  game = true;
   document.getElementById("player_choices").style.removeProperty("visibility");
   document
     .getElementById("computer_choices")
@@ -19,43 +17,33 @@ document.getElementById("new").onclick = function() {
 pl_rock.onclick = function() {
   //the player makes the choice to play 'rock' this round
   reset_btn();
-  Check_Game_State();
-  if (game == false) {
-    return false;
-  }
+
   document //makes the button turn blue
     .getElementById("pl_rock")
     .style.setProperty("filter", "hue-rotate(180deg)");
   turn("rock", computer_choice());
-  update_ui();
+
+  Check_Game_State();
 };
 
 pl_paper.onclick = function() {
   //the player makes the choice to play 'paper' this round
   reset_btn();
-  Check_Game_State();
-  if (game == false) {
-    return false;
-  }
   document //makes the button turn blue
     .getElementById("pl_paper")
     .style.setProperty("filter", "hue-rotate(180deg)");
   turn("paper", computer_choice());
-  update_ui();
+  Check_Game_State();
 };
 
 pl_scissors.onclick = function() {
   //the player makes the choice to play 'scissors' this round
   reset_btn();
-  Check_Game_State();
-  if (game == false) {
-    return false;
-  }
   document //makes the button turn blue
     .getElementById("pl_scissors")
     .style.setProperty("filter", "hue-rotate(180deg)");
   turn("scissors", computer_choice());
-  update_ui();
+  Check_Game_State();
 };
 
 function update_ui() {
@@ -71,9 +59,8 @@ function update_ui() {
 
 function Check_Game_State() {
   //checks wheath the should end
-  round++; //updates the current round
-  if (round == 6) {
-    //rounds are counted from 1 to play 5 rounds we check if the round var is 6
+  if (round == 5) {
+    update_ui();
     document.getElementById("round").innerText = `Round: FINSIH!`;
     let winner = ""; //the winner msg is generated
     if (computer_score > player_score) {
@@ -90,8 +77,10 @@ function Check_Game_State() {
     document
       .getElementById("computer_choices")
       .style.setProperty("visibility", "hidden");
-    game = false;
+    return false;
   }
+  round++; //updates the current round
+  update_ui();
 }
 
 function computer_choice() {
@@ -173,7 +162,7 @@ function turn(player_choice, computer_choice) {
     if (computer_choice == "paper") {
       anouncer.innerText = "You WIN this round!";
       player_score++;
-    } else {
+    } else if (computer_choice == "rock") {
       anouncer.innerText = "You LOST this round!";
       computer_score++;
     }
